@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title>Article Viewer</title>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="CSS Transition Experiment" />
+      <meta name="author" content="Sebin Song" />
+
+      <!--CSS Stylesheets -->
+      <link rel="stylesheet" type="text/css" href="./articleViewer.css" />
+      <link rel="stylesheet" type="text/css" href="./external/page1.css"/>
+      <link rel="stylesheet" type="text/css" href="./external/page2.css"/>
+
+      <!--font awesome CDN-->
+      <script src="https://use.fontawesome.com/c9c59ba449.js"></script> <!--font awesome CDN-->
+  </head>
+  <body>
+    <div class="outermost">
+
+      <div class="paper_container">
+
+        <div id="explanation" class="set_depth">
+          <div class="titleframe">
+            <span class="tl"></span><span class="tr"></span>
+            <span class="bl"></span><span class="br"></span>
+            <p class="title">Article<br/>Viewer</p>
+            <p class="name">Sebin's</p>
+          </div>
+
+          <ul id="cards">
+            <li id="motivation">
+              <div class="tag">Motivation</div>
+              <p class="motivation">
+                This is basically a book that<br/>I put some articles in. One day, I was<br/>
+                playing around with some
+                <span id="textcubes">
+                  <span class="cube">
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span>3</span>
+                  </span>
+                  <span class="cube">
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span>D</span>
+                  </span>
+                </span>
+                <br/>
+                features of CSS transform property and<br/> This weekly magazine
+                 happened to be<br/> next to my seat in the library.<br/>
+                Then I decided to create<br/>a book-like thing with CSS.
+              </p>
+            </li>
+            <li id="comment" class="deacti">
+              <div class="tag">Comment</div>
+              <p class="Comment">
+                Although part of it may seem a little<br/>
+                <span id="counterintuitive">
+                  <span class="block _1"><span>C</span><span>O</span></span>
+                  <span class="block _2"><span>U</span><span>N</span></span>
+                  <span class="block _3"><span>T</span><span>E</span></span>
+                  <span class="block _4"><span>R</span><span>I</span></span>
+                  <span class="block _5"><span>N</span><span>T</span></span>
+                  <span class="block _6"><span>U</span><span>I</span></span>
+                  <span class="block _7"><span>T</span><span>I</span></span>
+                  <span class="block _8"><span>V</span><span>E</span></span>
+                </span><br/>
+                I hope it's <br/>
+                <span id="pleasant">
+                  <span name="V">V</span><span name="I">I</span><span name="S">S</span>
+                  <span name="U">U</span><span name="A">A</span><span name="L">L</span>
+                  <span name="L">L</span><span name="Y">Y</span><span name="P">P</span>
+                  <span name="L">L</span><span name="E">E</span><span name="A">A</span>
+                  <span name="S">S</span><span name="A">A</span><span name="N">N</span>
+                  <span name="T">T</span>
+                </span> <br/>
+                enough for you. Use the remote to enjoy.
+              </p>
+            </li>
+          </ul>
+
+          <nav id="navigator">
+            <span name="motivation" class="active"></span><span name="comment"></span>
+          </nav>
+        </div><!-- Explanation -->
+
+        <div class="book">
+          <div class="cover back">
+            <figure class="front"></figure>
+            <figure class="back"></figure>
+            <figure class="top"></figure>
+            <figure class="bottom"></figure>
+            <figure class="left"></figure>
+            <figure class="right"></figure>
+          </div>
+          <div class="page">
+            <figure class="front" name="10">
+              <div class="wrapper"></div>
+            </figure>
+            <figure class="back" name="11">11</figure>
+          </div>
+          <div class="page">
+            <figure class="front" name="8">
+              <div class="wrapper"></div>
+            </figure>
+            <figure class="back" name="9">
+              <div class="wrapper"></div>
+            </iframe>
+            </figure>
+          </div>
+          <div class="page">
+            <figure class="front" name="6">
+              <div class="wrapper"></div>
+            </figure>
+            <figure class="back" name="7">
+              <div class="wrapper"></div>
+            </figure>
+          </div>
+          <div class="page">
+            <figure class="front" name="4">
+              <div class="wrapper"></div>
+            </figure>
+            <figure class="back" name="5">
+              <div class="wrapper"></div>
+            </figure>
+          </div>
+          <div class="page">
+            <figure class="front" name="2">
+              <div class="wrapper"></div>
+            </figure>
+            <figure class="back" name="3">
+              <div class="wrapper"></div>
+            </figure>
+          </div>
+          <div class="page">
+            <figure class="front" name="0">0</figure>
+            <!-- page 1 is a cover-->
+            <figure id="hehe" class="back" name="1">
+              <div class="wrapper"></div>
+            </figure>
+            <!--page2 is the first page and it's synchronized with
+             page3-->
+          </div>
+          <div id="frontcover" class="cover front">
+            <figure class="front">
+              <div class="cover_content">
+                <div class="frame">
+                  <span class="tl"></span><span class="tr"></span>
+                  <span class="bl"></span><span class="br"></span>
+                  <p class="title">Article<br/>Viewer</p>
+                  <p class="name">Sebin's</p>
+                </div>
+                <div class="globe_container">
+                  <div class="globe"><i class="fa fa-globe" aria-hidden="true"></i></div>
+                  <div class="plane"><i class="fa fa-fighter-jet" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </figure>
+            <figure class="back">B</figure>
+            <figure class="top"></figure>
+            <figure class="bottom"></figure>
+            <figure class="left"></figure>
+            <figure class="right"></figure>
+          </div>
+        </div> <!-- book -->
+
+      </div> <!-- paper container -->
+
+      <div id="remote_outermost">
+        <div id="remote_container">
+
+          <section id="sb_container" class="deactivated"> <!-- ScrollBar -->
+            <div class="track"></div>
+            <div class="thumb">
+              <span class="smile"></span>
+              <span class="smile"></span>
+              <span class="smile"></span>
+              <button class="hidden_btn"></button>
+            </div>
+            <button class="btn up"></button>
+            <button class="btn down"></button>
+            <div id="deactivator"></div>
+          </section>
+
+          <div id="remote">
+            <span id="previous"><</span>
+            <div class="smallcube odd">
+              <div class="wrapper">
+                <span value="0">-</span>
+                <span value="1">1</span>
+                <span value="3">3</span>
+                <span value="5">5</span>
+                <span value="7">7</span>
+                <span value="9">9</span>
+              </div>
+            </div>
+            <div class="smallcube even">
+              <div class="wrapper">
+                <span value="0">-</span>
+                <span value="2">2</span>
+                <span value="4">4</span>
+                <span value="6">6</span>
+                <span value="8">8</span>
+                <span value="10">10</span>
+              </div>
+            </div>
+            <span id="next">></span>
+          </div> <!--remote-->
+
+          <span id="name">remote</span>
+
+        </div> <!-- remote_container -->
+
+        <div id="tooltip">
+          Use me&nbsp;<i class="fa fa-arrow-up" aria-hidden="true"></i>
+          <span id="remove">x</span>
+        </div>
+      </div> <!-- remote_outermost -->
+    </div> <!-- outermost -->
+    <nav class="border-menu">
+      <div class="trigger"></div>
+      <ul class="list">
+        <li class="github">
+          <a href="https://github.com/SebinSong" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+        </li>
+        <li class="codepen">
+          <a href="https://codepen.io/freenaturalsoul/" target="_blank"><i class="fa fa-codepen" aria-hidden="true"></i></a>
+        </li>
+        <li class="linkedin">
+          <a href="https://www.linkedin.com/in/sebinsong" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+        </li>
+      </ul>
+      <canvas id="stardust"></canvas>
+      <p id="info">
+        This work is done by pure CSS/Vanila Javascript.<br/>
+        The sources I learned all the beauty of CSS from are,<br/>
+        <span>
+          <a href="https://tympanus.net/codrops/2013/11/14/animated-opening-type/" target="_blank">
+            <i class="fa fa-external-link" aria-hidden="true"></i>  Animated Opening Type</a>
+            By Diego Pardo
+        </span>
+        <span>
+          <a href="https://tympanus.net/codrops/2013/09/30/animated-border-menus/" target="_blank">
+            <i class="fa fa-external-link" aria-hidden="true"></i>  Animated Border Menus</a>
+          By Mary Lou
+        </span>
+        <span>
+          <a href="https://tympanus.net/codrops/2013/07/11/animated-books-with-css-3d-transforms/" target="_blank">
+            <i class="fa fa-external-link" aria-hidden="true"></i>  Animated Books with CSS 3D Transforms</a>
+          By Marco Barria
+        </span>
+        <span>
+          <a href="http://desandro.github.io/3dtransforms/" target="_blank">
+            <i class="fa fa-external-link" aria-hidden="true"></i>  Intro to CSS 3D transforms</a>
+          By David DeSandro
+        </span><br/>
+        <span id="last">Respect to all the awesome front-end experts for being an inspiration to me :)</span>
+      </p>
+    </nav>
+      <script type="text/javascript" src="./articleViewer.js"></script>
+      <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+  </body>
+</html>

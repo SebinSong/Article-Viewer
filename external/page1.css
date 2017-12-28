@@ -1,0 +1,228 @@
+@import url("https://fonts.googleapis.com/css?family=Russo+One|Exo|Barlow+Semi+Condensed");
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+div.responsive_grid {
+/*max-width: 900px;*/
+width: 100%;
+margin: auto;
+
+display: grid;
+grid-template-columns: [left] 1fr [middle] 4fr [right];
+grid-auto-flow: row;
+
+background-color: #fff;
+font-family: Exo;
+font-size: 18px;
+}
+
+div.responsive_grid a, div.responsive_grid a:hover,
+div.responsive_grid a:active {
+text-decoration: none;
+cursor: pointer;
+}
+
+div.responsive_grid header, div.responsive_grid footer {
+grid-column: left/right;
+}
+
+div.responsive_grid header {
+background-color: rgba(53,52,69,1);
+color: #fff;
+margin-bottom: 10px;
+
+padding: 80px 15px 30px;
+font-size: 45px;
+line-height: 40px;
+font-family: 'Russo One';
+font-weight: bold;
+letter-spacing: 0px;
+text-align: left;
+text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+div.responsive_grid header:after {
+content: "";
+height: 2px;
+background-color: #fff;
+display: block;
+
+position: relative;
+top: 15px;
+}
+
+div.responsive_grid footer {
+background-color: rgba(53,52,69,1);
+color: #fff;
+font-family: inherit;
+font-size: 12px;
+line-height: 100%;
+
+text-align: right;
+vertical-align: bottom;
+
+padding: 70px 20px 10px 0;
+}
+
+div.responsive_grid aside {
+grid-column: left/middle;
+
+background-color: inherit;
+font-family: inherit;
+font-size: 14px;
+color: rgba(0,0,0,0.85);
+text-align: left;
+letter-spacing: 0px;
+line-height: 100%;
+
+padding: 15px 0 0 15px;
+}
+
+div.responsive_grid aside span {
+font-weight: bold;
+font-family: 'Russo One';
+color: #9B172B;
+
+}
+
+div.responsive_grid section {
+grid-column: middle/right;
+
+background-color: inherit;
+color: rgba(0,0,0,1);
+text-align: left;
+line-height: 100%;
+
+/*max-width: 80%;*/
+}
+
+div.responsive_grid p.img {
+padding: 15px 0;
+text-align: center;
+position: relative;
+margin-top: 30px;
+
+overflow: hidden;
+}
+
+p.img > span.txtbox {
+position: absolute;
+left: 50%;
+transform: translateX(-50%);
+bottom: -15px;
+padding: 15px;
+font-size: 12px;
+line-height: 12px;
+text-transform: uppercase;
+
+background-color: rgba(0,0,0,0.7);
+outline: 2px solid #fff;
+outline-offset: -5px;
+color: #fff;
+text-align: center;
+
+opacity: 0;
+transition: all 0.15s ease-out;
+}
+
+div.responsive_grid p.img:hover > span.txtbox {
+opacity: 1;
+bottom: 25px;
+}
+
+div.responsive_grid p.img > img {
+width: 80%;
+box-shadow: 12px 12px 0px rgba(155,23,43,0.5),
+            -12px -12px 0px rgba(53,52,69,0.5);
+outline: 6px solid #fff;
+}
+
+div.responsive_grid section.content {
+padding-left: 15px;
+}
+
+div.responsive_grid .content h3, div.responsive_grid .content p {
+padding: 15px 15px 15px 0;
+}
+
+div.responsive_grid .content p {
+color: rgba(0,0,0,1);
+font-size: 16px;
+line-height: 32px;
+}
+
+div.responsive_grid .content h3 {
+color: rgba(53,52,69,1);
+font-family: "Russo One";
+font-size: 20px;
+line-height: 20px;
+font-weight: bold;
+}
+
+div.responsive_grid .content hr {
+height: 1px;
+margin: 50px 70px 50px 55px;
+background-color: rgba(140,10,20,1);
+box-shadow: 0 2px 1px 1px rgba(0,0,0,0.05);
+outline: none;
+color: transparent;
+}
+
+div.responsive_grid span.link {
+color: #9B172B;
+font-weight: bold;
+}
+
+div.responsive_grid span.link > a {
+background-color: #9B172B;
+color: #fff;
+font-size: 80%;
+padding-top: 4px;
+}
+
+div.responsive_grid span.author {
+color: #2C4F16;
+font-size: 110%;
+font-weight: bold;
+}
+
+div.responsive_grid .content blockquote {
+background-color: #9B172B;
+color: #fff;
+
+padding: 40px 30px;
+margin: 20px 15px 20px 0;
+
+text-align: right;
+position: relative;
+
+box-shadow: inset 0 10px 10px 5px rgba(0,0,0,0.3);
+text-shadow: 0 5px 5px rgba(0,0,0,0.6);
+}
+
+div.responsive_grid .content blockquote > span {
+font-size: 70%;
+padding-right: 15px;
+}
+
+div.responsive_grid .content blockquote:after {
+content: "";
+color: #ffff00;
+display: block;
+position: absolute;
+right: 13px;
+top: 0;
+
+background-color: #ffffff;
+width: 8px;
+height: 100%;
+}
+
+div.responsive_grid div#embed {
+position: relative;
+padding: 20px 70px;
+}

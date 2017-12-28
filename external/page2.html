@@ -1,0 +1,124 @@
+<div class="responsive_grid2">
+ <header>
+   Javascript is Fun: Finding closure
+   <span>Authored on Dec. 27th 2017<br/>By Sebin Song</span>
+ </header>
+
+ <section>
+   <p>
+     Closure has been one of the most obscure topics of mine in Javascript. I’ve read
+few articles that are written about what closure is and how it works but I feel like I have never fully understood it because none of them taught me how to use it. So I just have put it aside for a long while, feeling uncomfortable the whole time with the fact that I have never had a firm grasp on closure.
+   </p>
+   <p class="img">
+     <img src="./asset/wtf is closure.jpg" />
+     <span class="textbox">wtf is closure?</span>
+   </p><br/><br/>
+
+   <p>
+     <span class="author">Kyle Simpson</span>, the author of <i>“You Don’t Know Javascript”</i>, says in his book Closure is something all around you in your existing code. What we are missing is the proper mentality to recognize, embrace and leverage it for our own will. When I read it again, I found it so interesting and got curious about whether there really is closure going on in my own code which I wasn’t aware of using. So in a hope of better understanding closure, I decided to search my own code for closure and see how they are affecting my code.
+   </p>
+  <hr />
+
+  <p>
+    For this task, I’m gonna use my JS code that I wrote for this “Article Viewer”. Before I go into my code, let me remind myself of the textbook definition of what closure is. Here is the Kyle’s definition, which I think is one of the most clear ones out there.
+  </p>
+  <br />
+
+  <blockquote>
+    “Closure is when a function is able to remember and access its lexical scope even when the function is executing outside its lexical scope.”
+    <br/> <span><i>- YDKJS</i></span>
+  </blockquote><br/>
+
+  <p>
+    I found it a little tricky when I first read it because I couldn’t come up with a clear example of ‘function executing outside its lexical scope’. Mr. Simpson is kind enough to give a few examples of it in his book. The first one is a module pattern which looks something like this.
+  </p>
+
+   <p class="img">
+     <img src="./asset/module.jpg" />
+     <span class="textbox">module pattern from YDKJS</span>
+   </p>
+   <br/><br/><br/>
+
+   <p>
+     Most of the examples of closure out there look like this actually. But the thing is, I’ve never used this pattern in my code so far. There was none of my own example that I can say, “Oh, that’s what it is. I got it.”.
+But the next example he presents is something I have been using quite actively. <br/>
+  <span style="font-weight: bold">&nbsp; <i>- Callback Function</i></span>
+   </p>
+   <p>
+     As using a function as a callback is passing a function over to some other spots, it’s highly likely that the spot where the callback is invoked, in most cases, will be outside the scope it is declared in(a.k.a lexical scope). Luckily, I made a large number of uses of callback in my own code, most of which are for event handlers and the rest are for setTimeout timer. So I didn’t even have to take a close look to find it. Let’s get into it.
+   </p>
+   <p>
+     First of all, Let’s see how I used event handlers. I just randomly picked one of many event handlers I created here, which is a <span class="keyword"><code>“mousedown”</code></span> event for the moving part of the custom scrollbar. The callback function for it is named <span class="keyword"><code>“mdown_thumb”</code></span>.
+   </p>
+
+   <p class="img">
+     <img src="./asset/eventListener1.jpg" />
+     <span class="textbox">code snippet from ArticleViewer.js</span>
+   </p>
+   <br/>
+   <p class="img">
+     <img src="./asset/mdown_thumb.jpg" />
+     <span class="textbox">code snippet from ArticleViewer.js</span>
+   </p>
+   <br/>
+
+  <p>
+    As you can see inside this function, what it does when the event is fired is it first checks if the mouse button depressed is a left button and if it is, it subsequently calls a function named <span class="keyword"><code>_scrollbar.init()</code></span>. It’s a method of an object. Let’s take a look at the way this object is defined.
+  </p>
+
+  <p class="img">
+    <img src="./asset/_scrollbar object.jpg" />
+    <span class="textbox">code snippet from ArticleViewer.js</span>
+  </p>
+  <br/>
+
+  <p>
+    As you can see, It’s an object declared inside an IIFE function named <span class="keyword"><code>‘scrollBar’</code></span>. An IIFE basically executes at the same time when it is created. In other words, its scope, which is the scope where <span class="keyword"><code>_scrollBar</code></span> object resides, will apparently be gone(or garbage-collected) as this function call ends. So by the time the mouse event invokes its callback and tries to reference the <span class="keyword"><code>_scrollbar</code></span> object, it might be trying to read something that doesn’t exist. But that’s not the case, and here is exactly where closure comes to an effect.
+  </p><br/>
+
+  <p>
+    The scope of the <span class="keyword"><code>'scrollBar'</code></span> IIFE won’t be garbage-collected even after it finishes execution because the <span class="keyword"><code>“mdown_thumb”</code></span> callback function which is supposed to execute some time later on, still references the scope. So the scope of the IIFE remains intact somewhere inside the memory and the callback will have no trouble referencing the <span class="keyword"><code>init()</code></span> method of <span class="keyword"><code>_scrollbar</code></span> object.
+  </p>
+  <p>
+    Let’s suppose there was no concept of closure in Javascript. Then how could I produce the same effect as when closure does exist? Well, I would have had to declare new function that does the job of <span class="keyword"><code>_scrollbar.init()</code></span> inside every callback function that need it, which would have been tedious, tiresome and highly verbose.
+Thanks to my kind friend closure, which I wasn’t even aware of leveraging, I didn’t have to deal with such a frustration.
+  </p>
+  <p>
+    Let’s have a look at another case of closure, <span class="keyword"><code>setTimeout</code></span> timer.
+  </p>
+
+  <p class="img">
+    <img src="./asset/setTimeout1.jpg" />
+    <span class="textbox">code snippet from ArticleViewer.js</span>
+  </p>
+  <br/>
+
+  <p class="img">
+    <img src="./asset/setTimeout2_setDepth function.jpg" />
+    <span class="textbox">code snippet from ArticleViewer.js</span>
+  </p>
+  <br/>
+
+  <p>
+    As you can see, what this callback named <span class="keyword"><code>‘setDepth’</code></span> does is adding a class to some DOM elements. One of them which is named <span class="keyword"><code>coverPage</code></span> here actually is a variable defined in this IIFE called <span class="keyword"><code>pageTurning</code></span>.
+  </p>
+
+  <p class="img">
+    <img src="./asset/pageTurning.jpg" />
+    <span class="textbox">code snippet from ArticleViewer.js</span>
+  </p>
+  <br/>
+
+  <p>
+    As you may know well, <span class="keyword"><code>setTimeout</code></span> invokes its callback after the designated amount of time passes which is definitely after the IIFE is gone. But this callback has no trouble referencing the value of <span class="keyword"><code>coverPage</code></span> variable because of our friend, closure.
+    To be more specific, <span style="font-weight: bold; font-size: 105%;"><i>setDepth callback function has closure over the scope of pageTurning IIFE</i></span>&nbsp; and as a result of that the scope of <span class="keyword"><code>pageTurning</code></span> doesn’t get garbage-collected even after it finishes executing.
+  </p>
+
+  <p>
+    I haven’t actually counted them thoroughly, but I guess there are roughly a dozen of similar examples in my code. Even though I still can’t say I know what closure is, I hope this special task that I gave myself will help me better use closure in a right way when it’s needed.
+  </p><br/><br/>
+
+
+ </section>
+ <footer>This is a footer section and I don't know what to write here.</footer>
+</div> <!-- Responsive_Grid -->
