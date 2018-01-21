@@ -667,7 +667,7 @@ var pageElements = {
     ctx = canvas.box.getContext("2d");
 
     setID = window.setInterval(function(){
-
+      if(canvas.starArray.length > 80) return;
       for(var i=0; i<10; i++){
       	canvas.starArray.push( new Stardust_Constructor() );
       }
