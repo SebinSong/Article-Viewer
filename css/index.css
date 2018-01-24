@@ -1584,10 +1584,12 @@ button.hidden_btn {
   opacity: 0; }
 
 div.thumb button.hidden_btn {
-  cursor: -webkit-grab; }
+  cursor: -webkit-grab; 
+  cursor: grab;}
 
 div.thumb button.hidden_btn:active {
-  cursor: -webkit-grabbing; }
+  cursor: -webkit-grabbing; 
+  cursor: grabbing;}
 
 p#txtbox {
   display: inline-block;
